@@ -29,3 +29,14 @@ Los valores de `nivel_actual` son:
 - `1`: Plaza de Compostela.
 - `2`: mecanismo en movimiento.
 - `-1`: error.
+
+## 4. Transiciones
+
+- Desde `Idle` en el nivel 0, al pulsar `nivel_1`,
+  se pasa a `MovingUP`.
+- Desde `Idle` en el nivel 1, al pulsar `nivel_0`,
+  se pasa a `MovingDOWN`.
+- Al finalizar una subida o bajada, se llega al nivel
+  de destino y se vuelve a `Idle`.
+- Si se activa un error, se pasa a `Error`.
+- En `Error`, los botones no permiten mover el mecanismo.
