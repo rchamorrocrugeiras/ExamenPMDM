@@ -41,7 +41,24 @@ Los valores de `nivel_actual` son:
 - Si se activa un error, se pasa a `Error`.
 - En `Error`, los botones no permiten mover el mecanismo.
 
-## 5. Pruebas
+## 5. Diagrama de estados
+
+```mermaid
+stateDiagram-v2
+    [*] --> Idle
+
+    Idle --> MovingUP: Pulsar nivel_1 desde nivel 0
+    Idle --> MovingDOWN: Pulsar nivel_0 desde nivel 1
+
+    MovingUP --> Idle: Llegada al nivel 1
+    MovingDOWN --> Idle: Llegada al nivel 0
+
+    Idle --> Error: Se produce un error
+    MovingUP --> Error: Se produce un error
+    MovingDOWN --> Error: Se produce un error
+```
+
+## 6. Pruebas
 
 Los tests comprueban:
 
@@ -51,7 +68,7 @@ Los tests comprueban:
 - El comportamiento de los botones en cada nivel.
 - El bloqueo del mecanismo en caso de error.
 
-## 6. Funcionamiento
+## 7. Funcionamiento
 
 La función `gestor()` actualiza el nivel según el estado.
 Las funciones `nivel_0()` y `nivel_1()` gestionan las
@@ -63,6 +80,6 @@ al destino y devuelve la máquina al estado `Idle`.
 La función `activarError()` lleva la máquina al estado
 `Error`.
 
-## 7. Comprobación del funcionamiento de los Test
+## 8. Comprobación del funcionamiento de los Test
 
 ![ComprobacionTest.png](capturas/ComprobacionTest.png)
