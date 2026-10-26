@@ -50,7 +50,6 @@ Los tests comprueban:
 - La llegada a ambos niveles.
 - El comportamiento de los botones en cada nivel.
 - El bloqueo del mecanismo en caso de error.
-- El tratamiento de niveles no válidos.
 
 ## 6. Funcionamiento
 
