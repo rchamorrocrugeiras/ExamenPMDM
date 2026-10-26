@@ -44,3 +44,19 @@ fun nivel_1(): Int {
 
     return gestor()
 }
+
+fun finalizarMovimiento(): Int {
+    if (estado_acual is Estados.MovingUP ||
+        estado_acual is Estados.MovingDOWN
+    ) {
+        nivel_actual = nivel_destino
+        estado_acual = Estados.Idle
+    }
+
+    return gestor()
+}
+
+fun activarError(): Int {
+    estado_acual = Estados.Error
+    return gestor()
+}
