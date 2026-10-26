@@ -40,3 +40,30 @@ Los valores de `nivel_actual` son:
   de destino y se vuelve a `Idle`.
 - Si se activa un error, se pasa a `Error`.
 - En `Error`, los botones no permiten mover el mecanismo.
+
+## 5. Pruebas
+
+Los tests comprueban:
+
+- Los valores de nivel para cada estado.
+- Las transiciones de subida y bajada.
+- La llegada a ambos niveles.
+- El comportamiento de los botones en cada nivel.
+- El bloqueo del mecanismo en caso de error.
+- El tratamiento de niveles no válidos.
+
+## 6. Funcionamiento
+
+La función `gestor()` actualiza el nivel según el estado.
+Las funciones `nivel_0()` y `nivel_1()` gestionan las
+peticiones de movimiento.
+
+La función `finalizarMovimiento()` simula la llegada
+al destino y devuelve la máquina al estado `Idle`.
+
+La función `activarError()` lleva la máquina al estado
+`Error`.
+
+## 7. Comprobación del funcionamiento de los Test
+
+![ComprobacionTest.png](capturas/ComprobacionTest.png)
