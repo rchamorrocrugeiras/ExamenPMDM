@@ -6,25 +6,32 @@ var nivel_destino: Int = 0
 
 fun gestor(): Int {
     when (estado_acual) {
-        Estados.Idle -> {
-            if (nivel_actual != 0 && nivel_actual != 1) {
-                nivel_actual = -1
-                estado_acual = Estados.Error
-            }
+        is Estados.Idle -> {
+            return nivel_actual
         }
 
-        Estados.MovingUP -> {
+        is Estados.MovingUP -> {
             nivel_actual = 2
+            return nivel_actual
         }
 
-        Estados.MovingDOWN -> {
+        is Estados.MovingDOWN -> {
             nivel_actual = 2
+            return nivel_actual
         }
 
-        Estados.Error -> {
+        is Estados.Error -> {
             nivel_actual = -1
+            return nivel_actual
         }
     }
+}
 
-    return nivel_actual
+fun nivel_0(): Int {
+    if (estado_acual is Estados.Idle && nivel_actual == 1) {
+        nivel_destino = 0
+        estado_acual = Estados.MovingDOWN
+    }
+
+    return gestor()
 }
