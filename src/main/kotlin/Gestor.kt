@@ -35,3 +35,12 @@ fun nivel_0(): Int {
 
     return gestor()
 }
+
+fun nivel_1(): Int {
+    if (estado_acual is Estados.Idle && nivel_actual == 0) {
+        nivel_destino = 1
+        estado_acual = Estados.MovingUP
+    }
+
+    return gestor()
+}
